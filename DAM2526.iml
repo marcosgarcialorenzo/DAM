@@ -3,6 +3,27 @@
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$" dumb="true">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2425" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/A" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/B" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/C" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/D" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/E" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/Examenes" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/ExamenesMGL/Evaluacion1" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/ExamenesMGL/Evaluacion2" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/ExamenesMGL/PendientesAñoPasado" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/F" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/G" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/H" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/HundirLaFlota" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/I" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/J" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/K" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/L" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/M" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/N" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/test" />
     </content>
   </component>
 </module>

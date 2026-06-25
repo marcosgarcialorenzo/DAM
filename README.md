@@ -42,7 +42,6 @@ DAM2526/
 │       └── Curso2526/
 │           ├── Teclado.java
 │           ├── TecladoGrafico.java
-│           ├── TestAlumno.java
 │           │
 │           ├── A/   → Ejercicios básicos (clases, objetos, constructores)
 │           │   └── A2/-A13/
@@ -92,8 +91,9 @@ DAM2526/
 │           │   └── N2/
 │           │
 │           └── ExamenesMGL/
-│               ├── Evaluacion1/
-│               └── Evaluacion2/
+│               ├─── Evaluacion1/
+│               ├─── Evaluacion2/
+│               └─── Evaluacion3/    
 ```
 
 ---
