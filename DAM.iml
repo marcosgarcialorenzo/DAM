@@ -3,8 +3,6 @@
   <component name="AdditionalModuleElements">
     <content url="file://$MODULE_DIR$" dumb="true">
       <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/Examenes" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/ExamenesMGL/Evaluacion1" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/ExamenesMGL/Evaluacion2" />
       <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/ExamenesMGL/PendientesAñoPasado" />
       <excludeFolder url="file://$MODULE_DIR$/src/Programacion/Curso2526/test" />
       <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
