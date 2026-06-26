@@ -1,4 +1,4 @@
-# DAM2526 📚
+# DAM 📚
 
 Repositorio con ejercicios y proyectos del ciclo formativo **DAM (Desarrollo de Aplicaciones Multiplataforma)** correspondiente al curso 2025-2026.
 
