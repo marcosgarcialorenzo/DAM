@@ -1,0 +1,34 @@
+{
+  "juegos": [
+    {
+      "nombre": "The Legend of Zelda: Breath of the Wild",
+      "plataforma": "Nintendo Switch",
+      "genero": "Aventura",
+      "lanzamiento": 2017
+    },
+    {
+      "nombre": "God of War",
+      "plataforma": "PlayStation 4",
+      "genero": "Acción",
+      "lanzamiento": 2018
+    },
+    {
+      "nombre": "Red Dead Redemption 2",
+      "plataforma": "PlayStation 4, Xbox One, PC",
+      "genero": "Acción/Aventura",
+      "lanzamiento": 2018
+    },
+    {
+      "nombre": "Minecraft",
+      "plataforma": "Multiplataforma",
+      "genero": "Sandbox/Survival",
+      "lanzamiento": 2011
+    },
+    {
+      "nombre": "Fortnite",
+      "plataforma": "Multiplataforma",
+      "genero": "Battle Royale",
+      "lanzamiento": 2017
+    }
+  ]
+}
