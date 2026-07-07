@@ -14,6 +14,6 @@ public class Relaciones {
         this.nombreRepre = nombreRepre;
         this.alumnos = new ArrayList<>();
         this.FechaInicio = FechaIncio;
-        this.FechaFin = FechaFin
+        this.FechaFin = FechaFin;
     }
 }
