@@ -1,4 +1,4 @@
-package Curso2526.Programacion.ExamenesMGL.Evaluacion3.Ej1.ui;
+/*package Curso2526.Programacion.ExamenesMGL.Evaluacion3.Ej1.ui;
 
 import Curso2526.Programacion.ExamenesMGL.Evaluacion3.Ej1.dao.DAOEmpresaImpl;
 import Curso2526.Programacion.ExamenesMGL.Evaluacion3.Ej1.model.Alumno;
@@ -83,4 +83,4 @@ public class PracticasUI {
         PracticasUI ui = new PracticasUI(servicio);
         ui.menu();
     }
-}
+}*/

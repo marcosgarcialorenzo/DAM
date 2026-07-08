@@ -1,3 +1,4 @@
+/*
 package Curso2526.Programacion.ExamenesMGL.Evaluacion3.Ej1.dao;
 
 import java.sql.PreparedStatement;
@@ -37,4 +38,4 @@ public class DAOEmpresaImpl implements DAOEmpresaInf {
         }
         return numero;
     }
-}
+}*/
