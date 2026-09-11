@@ -1,99 +1,138 @@
 # DAM
 
-Repositorio con ejercicios, prácticas y exámenes del ciclo formativo **DAM (Desarrollo de Aplicaciones Multiplataforma)**.
+Repositorio personal con ejercicios, prácticas, entregas y exámenes del ciclo formativo de **Desarrollo de Aplicaciones Multiplataforma**.
+
+El proyecto reúne trabajo de programación en Java, acceso a datos, SQL, MongoDB y pequeños ejercicios de repaso. Está pensado como cuaderno de estudio y de prácticas del alumno.
 
 ---
 
 ## 📁 Estructura del proyecto
 
-La raíz del proyecto contiene un único módulo Maven y el código fuente se organiza bajo `src/`:
+La raíz del proyecto es un proyecto Maven con `src` como directorio principal de código fuente:
 
 ```text
 DAM/
-├── pom.xml
+├── LICENSE
 ├── README.md
+├── pom.xml
 ├── data/
 │   └── m3db.mv.db
+├── .gitignore
+├── .gitmessage
+├── .idea/
+├── target/
 └── src/
-	├── Curso2425/
-	│   └── Programacion/
-	│       └── Examenes/
-	│           ├── Ev1/
-	│           └── Ev3/
-	└── Curso2526/
-		├── BasesDeDatos/
-		│   ├── ExamenesMGL/
-		│   │   └── SQL/
-		│   ├── MongoDB/
-		│   ├── SQL/
-		│   └── UT08 PLSQL/
-		└── Programacion/
-			├── A/
-			├── B/
-			├── C/
-			├── D/
-			├── E/
-			├── F/
-			├── G/
-			├── H/
-			├── HundirLaFlota/
-			├── I/
-			├── J/
-			├── K/
-			├── L/
-			├── M/
-			├── N/
-			├── ExamenesMGL/
-			├── Teclado.java
-			└── TecladoGrafico.java
+    ├── Curso2425/
+    │   ├── BasesDeDatos/
+    │   └── Programacion/
+    │       └── Examenes/
+    │           ├── Ev1/
+    │           └── Ev3/
+    ├── Curso2526/
+    │   ├── BasesDeDatos/
+    │   │   ├── ExamenesMGL/
+    │   │   ├── MongoDB/
+    │   │   ├── SQL/
+    │   │   └── UT08 PLSQL/
+    │   └── Programacion/
+    │       ├── A/
+    │       ├── B/
+    │       ├── C/
+    │       ├── D/
+    │       ├── E/
+    │       ├── F/
+    │       ├── G/
+    │       ├── H/
+    │       ├── HundirLaFlota/
+    │       ├── I/
+    │       ├── J/
+    │       ├── K/
+    │       ├── L/
+    │       ├── M/
+    │       ├── N/
+    │       ├── ExamenesMGL/
+    │       ├── Teclado.java
+    │       └── TecladoGrafico.java
+    └── Curso2627/
+        ├── AccesoADatos/
+        └── RepasoVerano/
 ```
 
-> Nota: el árbol anterior está resumido para mostrar las carpetas principales. Dentro de cada bloque hay varios ejercicios, soluciones y exámenes organizados por tema.
+> El árbol anterior está resumido para mostrar los bloques principales. Cada carpeta incluye varios ejercicios, soluciones, enunciados, archivos de apoyo y entregas por tema.
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+## 🧩 Contenido principal
 
-- **Java 21**
-- **Maven**
-- **Lombok**
-- **H2 Database**
-- **SQL** y **MongoDB**
-- **IDE recomendado**: IntelliJ IDEA
+- Programación en Java con ejercicios por bloques (`A` a `N`).
+- Prácticas de bases de datos con SQL, PLSQL y MongoDB.
+- Exámenes y simulacros de programación y bases de datos.
+- Ejercicios de acceso a datos y repaso de verano en cursos posteriores.
+- Archivos auxiliares como PDFs, scripts SQL, ficheros de datos y ejemplos de conexión.
 
-El `pom.xml` configura `src` como directorio de código fuente y utiliza un único proyecto Maven.
+---
+
+## 🛠️ Tecnologías y herramientas
+
+- Java 21
+- Maven
+- Lombok
+- H2 Database
+- SQL / PLSQL / MongoDB
+- Ficheros `.txt`, `.csv`, `.json`, `.xml` y PDFs de apoyo
+- IntelliJ IDEA como entorno recomendado
+
+El `pom.xml` configura la compilación del proyecto con Java 21 y usa `src` como carpeta de origen.
+
+---
+
+## ▶️ Cómo usarlo
+
+Desde la raíz del repositorio:
+
+```bash
+mvn compile
+```
+
+Si quieres ejecutar una clase Java concreta, puedes lanzarla desde tu IDE o desde la línea de comandos con el classpath generado por Maven.
 
 ---
 
 ## 📝 Convención de commits
 
-Se sigue una convención tipo *Conventional Commits*:
+Se usa una convención tipo Conventional Commits:
 
 ```text
 <tipo>: <descripción corta en imperativo>
 ```
 
-### Tipos habituales
+Tipos habituales:
 
-| Tipo | Descripción | Ejemplo |
-|---|---|---|
-| `feat` | Nueva funcionalidad | `feat(K0): añadir método ordenar empleados por edad` |
-| `fix` | Corrección de errores | `fix(E7): corregir división por cero` |
-| `docs` | Documentación | `docs(N1): ampliar comentarios del ejercicio` |
-| `refactor` | Mejora interna sin cambiar comportamiento | `refactor(Empresa): simplificar lógica de modificación` |
+- `feat`: nueva funcionalidad o ejercicio
+- `fix`: corrección de errores
+- `docs`: documentación o explicación
+- `refactor`: mejora interna sin cambiar comportamiento
+
+Ejemplos:
+
+```text
+feat(K0): añadir método ordenar empleados por edad
+fix(E7): corregir división por cero
+docs(N1): ampliar comentarios del ejercicio
+```
 
 ---
 
 ## 📄 Licencia
 
-Este proyecto está publicado bajo licencia **MIT**.
+Este proyecto está publicado bajo la licencia **MIT**.
 
-El contenido del repositorio está pensado para **apuntes y ejercicios de uso educativo** dentro del ciclo DAM.
+El contenido del repositorio está pensado para uso académico y de estudio dentro del ciclo DAM.
 
-Consulta el archivo `LICENSE` para ver el texto completo de la licencia.
+Consulta el archivo `LICENSE` para ver el texto completo.
 
 ---
 
 ## 👤 Autor
 
-**Marcos García Lorenzo** — Estudiante DAM en el IES Luis Vives
+**Marcos García Lorenzo**
