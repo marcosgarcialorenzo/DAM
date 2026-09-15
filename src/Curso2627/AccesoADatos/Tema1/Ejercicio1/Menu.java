@@ -88,7 +88,6 @@ public class Menu {
 
         System.out.println("Ingrese el nombre del producto: ");
         nombre = scanner.nextLine();
-        scanner.nextLine();
 
         System.out.println("Ingrese el precio del producto: ");
         precio = scanner.nextDouble();

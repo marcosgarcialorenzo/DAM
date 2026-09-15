@@ -46,6 +46,7 @@ public class GestorDatos {
             clientes.add(cliente);
             return true;
         } else {
+            System.out.println("Error: Ya existe un cliente con el ID " + cliente.getId());
             return false;
         }
     }
@@ -68,6 +69,7 @@ public class GestorDatos {
             productos.add(producto);
             return true;
         } else {
+            System.out.println("Error: Ya existe un producto con el ID " + producto.getId());
             return false;
         }
     }
