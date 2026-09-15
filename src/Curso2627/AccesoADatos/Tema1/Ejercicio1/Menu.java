@@ -44,27 +44,84 @@ public class Menu {
     }
 
     private void listarClientes() {
-
+        for (Cliente cliente : gestorDatos.obtenerClientes()) {
+            System.out.println("ID: " + cliente.getId() + ", Nombre: " + cliente.getNombre() +
+                    ", Correo: " + cliente.getEmail() + ", Teléfono: " + cliente.getTelefono());
+        }
     }
 
     private void listarProductos() {
-
+        for (Producto producto : gestorDatos.obtenerProductos()) {
+            System.out.println("ID: " + producto.getId() + ", Nombre: " + producto.getNombre() +
+                    ", Precio: " + producto.getPrecio());
+        }
     }
 
     private void agregarCliente(Scanner scanner) {
+        int id;
+        String nombre, correo, telefono;
 
+        System.out.print("Ingrese el ID del cliente: ");
+        id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Ingrese el nombre del cliente: ");
+        nombre = scanner.nextLine();
+
+        System.out.print("Ingrese el correo del cliente: ");
+        correo = scanner.nextLine();
+
+        System.out.print("Ingrese el teléfono del cliente: ");
+        telefono = scanner.nextLine();
+
+        gestorDatos.agregarCliente(new Cliente(id, nombre, correo, telefono));
     }
 
     private void agregarProducto(Scanner scanner) {
+        int id;
+        String nombre;
+        double precio;
 
+        System.out.println("Ingrese el ID del producto: ");
+        id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.println("Ingrese el nomnre del producto: ");
+        nombre = scanner.nextLine();
+        scanner.nextLine();
+
+        System.out.println("Ingrese el precio del producto: ");
+        precio = scanner.nextDouble();
+        scanner.nextLine();
+
+        gestorDatos.agregarProducto(new Producto(id, nombre, precio));
     }
 
     private void productoPrecioMasAlto() {
-
+        Producto productoMasCaro = null;
+        for (Producto producto : gestorDatos.obtenerProductos()) {
+            if (productoMasCaro == null || producto.getPrecio() > productoMasCaro.getPrecio()) {
+                productoMasCaro = producto;
+            }
+        }
+        if (productoMasCaro != null) {
+            System.out.println("Producto con precio más alto: " + productoMasCaro.getNombre() + " - $" + productoMasCaro.getPrecio());
+        } else {
+            System.out.println("No hay productos disponibles.");
+        }
     }
 
     private void clienteNombreMasLargo() {
-
+        Cliente clienteConNombreMasLargo = null;
+        for (Cliente cliente : gestorDatos.obtenerClientes()) {
+            if (clienteConNombreMasLargo == null || cliente.getNombre().length() > clienteConNombreMasLargo.getNombre().length()) {
+                clienteConNombreMasLargo = cliente;
+            }
+        }
+        if (clienteConNombreMasLargo != null) {
+            System.out.println("Cliente con nombre más largo: " + clienteConNombreMasLargo.getNombre());
+        } else {
+            System.out.println("No hay clientes disponibles.");
+        }
     }
 }
-

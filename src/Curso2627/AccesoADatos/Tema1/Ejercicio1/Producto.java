@@ -7,7 +7,8 @@ public class Producto implements Serializable {
     private String nombre;
     private double precio;
 
-    public Producto() {}
+    public Producto() {
+    }
 
     public Producto(int id, String nombre, double precio) {
         this.id = id;
@@ -15,12 +16,27 @@ public class Producto implements Serializable {
         this.precio = precio;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getId() {
+        return id;
+    }
 
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-    public double getPrecio() { return precio; }
-    public void setPrecio(double precio) { this.precio = precio; }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+    }
 }

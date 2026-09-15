@@ -2,6 +2,7 @@ package Curso2627.AccesoADatos.Tema1.Ejercicio1;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class GestorDatos {
     private List<Cliente> clientes;
     private List<Producto> productos;
@@ -37,28 +38,50 @@ public class GestorDatos {
     }
 
     public List<Cliente> obtenerClientes() {
-
+        for (Cliente c : clientes) {
+        }
+        return clientes;
     }
 
     public boolean agregarCliente(Cliente cliente) {
-
+        if (!existeCliente(cliente.getId())) {
+            clientes.add(cliente);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private boolean existeCliente(int id) {
-
+        for (Cliente c : clientes) {
+            if (c.getId() == id) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public List<Producto> obtenerProductos() {
-
+        for (Producto p : productos) {
+        }
+        return productos;
     }
 
     public boolean agregarProducto(Producto producto) {
-
+        if (!existeProducto(producto.getId())) {
+            productos.add(producto);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     private boolean existeProducto(int id) {
-
+        for (Producto p : productos) {
+            if (p.getId() == id) {
+                return true;
+            }
+        }
+        return false;
     }
-
 }
-
