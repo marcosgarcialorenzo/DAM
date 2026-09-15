@@ -46,7 +46,7 @@ public class Menu {
     private void listarClientes() {
         for (Cliente cliente : gestorDatos.obtenerClientes()) {
             System.out.println("ID: " + cliente.getId() + ", Nombre: " + cliente.getNombre() +
-                    ", Correo: " + cliente.getEmail() + ", Teléfono: " + cliente.getTelefono());
+                    ", Correo: " + cliente.getCorreo() + ", Teléfono: " + cliente.getTelefono());
         }
     }
 
@@ -86,7 +86,7 @@ public class Menu {
         id = scanner.nextInt();
         scanner.nextLine();
 
-        System.out.println("Ingrese el nomnre del producto: ");
+        System.out.println("Ingrese el nombre del producto: ");
         nombre = scanner.nextLine();
         scanner.nextLine();
 

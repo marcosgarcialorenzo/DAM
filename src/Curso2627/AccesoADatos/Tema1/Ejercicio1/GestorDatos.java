@@ -38,8 +38,6 @@ public class GestorDatos {
     }
 
     public List<Cliente> obtenerClientes() {
-        for (Cliente c : clientes) {
-        }
         return clientes;
     }
 
@@ -62,8 +60,6 @@ public class GestorDatos {
     }
 
     public List<Producto> obtenerProductos() {
-        for (Producto p : productos) {
-        }
         return productos;
     }
 
