@@ -114,7 +114,7 @@ public class Menu {
     private void clienteNombreMasLargo() {
         Cliente clienteConNombreMasLargo = null;
         for (Cliente cliente : gestorDatos.obtenerClientes()) {
-            if (clienteConNombreMasLargo == null || cliente.getNombre().length() > clienteConNombreMasLargo.getNombre().length()) {
+            if (clienteConNombreMasLargo == null || cliente.getNombre().length() > clienteConNombreMasLargo.getNombre().length()) { // || esto es un OR
                 clienteConNombreMasLargo = cliente;
             }
         }
