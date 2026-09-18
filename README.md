@@ -1,55 +1,35 @@
+
 # DAM
 
-Repositorio personal con ejercicios, prácticas, entregas y exámenes del ciclo formativo de **Desarrollo de Aplicaciones Multiplataforma**.
+Repositorio personal con ejercicios, prácticas, entregas y exámenes del ciclo formativo de **Desarrollo de Aplicaciones Multiplataforma (DAM)**.
 
-El proyecto reúne trabajo de programación en Java, acceso a datos, SQL, MongoDB y pequeños ejercicios de repaso. Está pensado como cuaderno de estudio y de prácticas del alumno.
+Este repositorio reúne trabajo de programación en Java, prácticas y ejercicios de acceso a datos (SQL, PLSQL, MongoDB), ejemplos con H2 y pequeños proyectos de repaso. Está pensado como cuaderno de trabajo y estudio del alumno.
 
 ---
 
 ## 📁 Estructura del proyecto
 
-La raíz del proyecto es un proyecto Maven con `src` como directorio principal de código fuente:
+Es un proyecto Maven con `src` como directorio principal de código fuente. A grandes rasgos:
 
 ```text
 DAM/
+├── DAM.iml
 ├── LICENSE
 ├── README.md
 ├── pom.xml
-├── data/
-│   └── m3db.mv.db
+├── data/                # ficheros H2 de ejemplo
+│   ├── m3db.mv.db
+│   └── m3db.trace.db
 ├── .gitignore
 ├── .gitmessage
 ├── .idea/
 ├── target/
 └── src/
     ├── Curso2425/
-    │   ├── BasesDeDatos/
-    │   └── Programacion/
-    │       └── Examenes/
-    │           ├── Ev1/
-    │           └── Ev3/
     ├── Curso2526/
     │   ├── BasesDeDatos/
-    │   │   ├── ExamenesMGL/
-    │   │   ├── MongoDB/
-    │   │   ├── SQL/
-    │   │   └── UT08 PLSQL/
     │   └── Programacion/
-    │       ├── A/
-    │       ├── B/
-    │       ├── C/
-    │       ├── D/
-    │       ├── E/
-    │       ├── F/
-    │       ├── G/
-    │       ├── H/
-    │       ├── HundirLaFlota/
-    │       ├── I/
-    │       ├── J/
-    │       ├── K/
-    │       ├── L/
-    │       ├── M/
-    │       ├── N/
+    │       ├── A/ .. N/  # ejercicios organizados por bloques
     │       ├── ExamenesMGL/
     │       ├── Teclado.java
     │       └── TecladoGrafico.java
@@ -58,49 +38,82 @@ DAM/
         └── RepasoVerano/
 ```
 
-> El árbol anterior está resumido para mostrar los bloques principales. Cada carpeta incluye varios ejercicios, soluciones, enunciados, archivos de apoyo y entregas por tema.
+> El árbol anterior está resumido. Cada carpeta contiene ejercicios, soluciones, enunciados y recursos por tema.
 
 ---
 
-## 🧩 Contenido principal
+## 🧩 Qué contiene
 
-- Programación en Java con ejercicios por bloques (`A` a `N`).
-- Prácticas de bases de datos con SQL, PLSQL y MongoDB.
-- Exámenes y simulacros de programación y bases de datos.
-- Ejercicios de acceso a datos y repaso de verano en cursos posteriores.
-- Archivos auxiliares como PDFs, scripts SQL, ficheros de datos y ejemplos de conexión.
+- Ejercicios y soluciones de programación Java (bloques A–N).
+- Prácticas y pruebas de bases de datos: SQL, PLSQL y MongoDB.
+- Exámenes y ejercicios corregidos (varias convocatorias).
+- Recursos adicionales: PDFs, scripts SQL, ficheros de datos y ejemplos de conexión (p. ej. H2 en `data/`).
+- Clases utilitarias de entrada como `Teclado.java` y ejemplos con interfaz como `TecladoGrafico.java`.
 
 ---
 
-## 🛠️ Tecnologías y herramientas
+## 🛠️ Tecnologías y dependencias
 
-- Java 21
+- Java 21 (configurado en `pom.xml`)
 - Maven
-- Lombok
-- H2 Database
+- Lombok (si se usa en ejercicios concretos)
+- H2 Database (ficheros de ejemplo en `data/`)
 - SQL / PLSQL / MongoDB
-- Ficheros `.txt`, `.csv`, `.json`, `.xml` y PDFs de apoyo
-- IntelliJ IDEA como entorno recomendado
+- Archivos de apoyo: `.txt`, `.csv`, `.json`, `.xml`, PDFs
+- IDE recomendado: IntelliJ IDEA
 
-El `pom.xml` configura la compilación del proyecto con Java 21 y usa `src` como carpeta de origen.
+En `pom.xml` se declaran las dependencias más relevantes (p. ej. Lombok, H2) y la configuración del compilador para Java 21.
 
 ---
 
-## ▶️ Cómo usarlo
+## ▶️ Cómo compilar y ejecutar
 
-Desde la raíz del repositorio:
+1) Compilar con Maven (desde la raíz del proyecto):
 
 ```bash
-mvn compile
+mvn -q compile
 ```
 
-Si quieres ejecutar una clase Java concreta, puedes lanzarla desde tu IDE o desde la línea de comandos con el classpath generado por Maven.
+2) Ejecutar una clase con `main` desde la línea de comandos (ejemplo):
+
+```bash
+# Compilar
+mvn -q compile
+
+# Ejecutar (reemplaza fully.qualified.MainClass por la clase que quieras ejecutar)
+java -cp target/classes fully.qualified.MainClass
+```
+
+3) Alternativamente puedes ejecutar desde el IDE (IntelliJ):
+   - Importa el proyecto como Maven
+   - Asegúrate de usar JDK 21 en la configuración del proyecto
+   - Ejecuta la clase `main` desde el navegador de proyecto
+
+4) Usando Maven Exec (si añades o tienes el plugin `exec` configurado):
+
+```bash
+mvn -q compile exec:java -Dexec.mainClass="fully.qualified.MainClass"
+```
+
+Notas útiles:
+- Algunos ejemplos (p. ej. `TecladoGrafico`) usan Swing/JOptionPane y necesitan entorno gráfico para ejecutarse.
+- Los ficheros H2 en `data/` son de ejemplo; si ejecutas scripts que acceden a la base de datos revisa las rutas.
+
+---
+
+## 🧭 Clases y ejemplos de interés
+
+- `src/Curso2526/Programacion/Teclado.java` — utilidades de entrada por consola.
+- `src/Curso2526/Programacion/TecladoGrafico.java` — ejemplo con interfaz gráfica simple.
+- `src/Curso2627/RepasoVerano/...` — ejercicios de acceso a datos y repasos con mains de ejemplo.
+
+Si quieres que añada instrucciones concretas para ejecutar alguna de estas clases, dímelo y pondré el comando exacto con el nombre completo del paquete.
 
 ---
 
 ## 📝 Convención de commits
 
-Se usa una convención tipo Conventional Commits:
+Se utiliza una convención tipo Conventional Commits:
 
 ```text
 <tipo>: <descripción corta en imperativo>
@@ -127,12 +140,18 @@ docs(N1): ampliar comentarios del ejercicio
 
 Este proyecto está publicado bajo la licencia **MIT**.
 
-El contenido del repositorio está pensado para uso académico y de estudio dentro del ciclo DAM.
-
-Consulta el archivo `LICENSE` para ver el texto completo.
+Consulta el archivo `LICENSE` para el texto completo.
 
 ---
 
 ## 👤 Autor
 
 **Marcos García Lorenzo**
+
+---
+
+Si quieres, puedo:
+- Añadir un índice (TOC) al inicio del README.
+- Preparar un `README` más corto para mostrar en la página principal (resumen) y otro más largo en `/docs`.
+- Crear un patch `git` aplicable o commitearlo en una rama y preparar el `git push` (necesitaría permiso para ejecutar comandos remotos o que me indiques cómo quieres aplicar los cambios).
+
