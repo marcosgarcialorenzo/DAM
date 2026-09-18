@@ -50,31 +50,10 @@ public class GestorDatos {
         pedidos.add(new Pedido(10, "Hub USB para Valeria", 2, 10, 10));
     }
 
+    // CLIENTES
+
     public List<Cliente> obtenerClientes() {
         return clientes;
-    }
-
-    public List<Pedido> obtenerPedidos() {
-        return pedidos;
-    }
-
-    public boolean agregarPedido(Pedido pedido) {
-        if (!existePedido(pedido.getId())) {
-            pedidos.add(pedido);
-            return true;
-        } else {
-            System.err.println("Error: Ya existe un pedido con el ID " + pedido.getId());
-            return false;
-        }
-    }
-
-    private boolean existePedido(int id) {
-        for (Pedido p : pedidos) {
-            if (p.getId() == id) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public boolean agregarCliente(Cliente cliente) {
@@ -96,6 +75,8 @@ public class GestorDatos {
         return false;
     }
 
+    //PRODUCTOS
+
     public List<Producto> obtenerProductos() {
         return productos;
     }
@@ -112,6 +93,31 @@ public class GestorDatos {
 
     private boolean existeProducto(int id) {
         for (Producto p : productos) {
+            if (p.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // PEDIDOS
+
+    public List<Pedido> obtenerPedidos() {
+        return pedidos;
+    }
+
+    public boolean agregarPedido(Pedido pedido) {
+        if (!existePedido(pedido.getId())) {
+            pedidos.add(pedido);
+            return true;
+        } else {
+            System.err.println("Error: Ya existe un pedido con el ID " + pedido.getId());
+            return false;
+        }
+    }
+
+    private boolean existePedido(int id) {
+        for (Pedido p : pedidos) {
             if (p.getId() == id) {
                 return true;
             }
