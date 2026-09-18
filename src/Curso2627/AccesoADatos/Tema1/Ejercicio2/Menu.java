@@ -25,7 +25,7 @@ public class Menu {
             System.out.println("8. Agregar Pedido");
             System.out.println("9. Listar Pedidos por Cliente");
             System.out.println("10. Listar Pedidos con detalles de Cliente y Producto");
-            System.out.println("11. Salir");
+            System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
 
             opcion = scanner.nextInt();
@@ -42,11 +42,11 @@ public class Menu {
                 case 8 -> agregarPedido(scanner);
                 case 9 -> listarPedidosPorCliente(scanner);
                 case 10 -> listarPedidosConDetalles(scanner);
-                case 11 -> System.out.println("Saliendo del programa...");
+                case 0 -> System.out.println("Saliendo del programa...");
                 default -> System.out.println("Opción errónea, intente de nuevo.");
             }
 
-        } while (opcion != 11);
+        } while (opcion != 0);
 
         scanner.close();
     }
