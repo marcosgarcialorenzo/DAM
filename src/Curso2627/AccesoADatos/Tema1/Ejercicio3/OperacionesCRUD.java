@@ -255,11 +255,12 @@ public class OperacionesCRUD {
     }
 
     public Cliente MostrarClienteconMayorCredito() {
-
         Cliente max = clientes.get(0);
-
-        /* resto del codigo a implementar por el alumno */
-
+        for (Cliente c : clientes) {
+            if (c.getLimiteCredito() > max.getLimiteCredito()) {
+                max = c;
+            }
+        }
         return max;
     }
 

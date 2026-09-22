@@ -367,9 +367,13 @@ public class Menu {
         }
     }
 
-    private void clienteMayorCredito() {
-        /* resto del codigo a implementar por el alumno */
-
+    private void clienteMayorCredito() { //("23. Mostrar el Cliente que tenga MAYOR crédito");
+        Cliente cliente = crud.MostrarClienteconMayorCredito();
+        if (cliente != null) {
+            System.out.println("Cliente con mayor crédito es: " + cliente.getEmpresa() + " con " + cliente.getLimiteCredito());
+        } else {
+            System.err.println("NO HAY CLIENTES");
+        }
     }
 
     private void productoMenorStock() {
