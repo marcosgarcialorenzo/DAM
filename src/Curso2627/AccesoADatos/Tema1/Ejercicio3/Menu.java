@@ -117,7 +117,15 @@ public class Menu {
     }
 
     private void borrarOficina(Scanner sc) {
-        /* resto del codigo a implementar por el alumno */
+        int numeroOficina;
+        System.out.println("Introduce el número de oficina a borrar: ");
+        numeroOficina = sc.nextInt();
+        if (crud.borrarOficina(numeroOficina)) {
+            System.out.println("Oficina " + numeroOficina + " borrada correctamente.");
+        }
+        else {
+            System.err.println("NO SE PUEDE BORRAR (NO EXISTE)");
+        }
     }
 
     private void buscarOficina(Scanner sc) {

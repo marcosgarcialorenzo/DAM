@@ -71,8 +71,12 @@ public class OperacionesCRUD {
     }
 
     public boolean borrarOficina(int id) {
-        /* resto del codigo a implementar por el alumno */
-
+        for (Oficina o : oficinas) {
+            if (o.getNumeroOficina() == id) {
+                oficinas.remove(o);
+                return true;
+            }
+        }
         return false;
     }
 
