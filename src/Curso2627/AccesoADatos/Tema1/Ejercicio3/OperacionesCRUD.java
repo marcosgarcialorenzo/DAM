@@ -134,9 +134,12 @@ public class OperacionesCRUD {
     }
 
     public boolean borrarCliente(int id) {
-
-        /* resto del codigo a implementar por el alumno */
-
+        for (Cliente c : clientes) {
+            if (c.getNumeroCliente() == id) {
+                clientes.remove(c);
+                return true;
+            }
+        }
         return false;
     }
 

@@ -219,8 +219,14 @@ public class Menu {
     }
 
     private void borrarCliente(Scanner sc) {
-        /* resto del codigo a implementar por el alumno */
-
+        int numeroCliente;
+        System.out.println("Introduce el número de cliente a borrar: ");
+        numeroCliente = sc.nextInt();
+        if (crud.borrarCliente(numeroCliente)) {
+            System.out.println("Cliente " + numeroCliente + " borrado correctamente.");
+        } else {
+            System.err.println("NO SE PUEDE BORRAR (NO EXISTE)");
+        }
     }
 
     private void buscarCliente(Scanner sc) {
