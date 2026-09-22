@@ -327,8 +327,14 @@ public class Menu {
     }
 
     private void borrarPedido(Scanner sc) {
-        /* resto del codigo a implementar por el alumno */
-
+        int numeroPedido;
+        System.out.print("Introduzca el número del pedido a borrar: ");
+        numeroPedido = sc.nextInt();
+        if (crud.borrarPedido(numeroPedido)) {
+            System.out.println("Pedido " + numeroPedido + " borrado correctamente.");
+        } else {
+            System.err.println("NO SE PUEDE BORRAR (NO EXISTE)");
+        }
     }
 
     private void buscarPedido(Scanner sc) {

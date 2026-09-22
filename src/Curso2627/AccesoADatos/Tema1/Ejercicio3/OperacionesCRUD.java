@@ -175,7 +175,7 @@ public class OperacionesCRUD {
     }
 
     public Producto buscarProducto(String cod) {
-        for (Producto p: productos) {
+        for (Producto p : productos) {
             if (p.getCodigoProducto().equalsIgnoreCase(cod)) {
                 return p;
             }
@@ -196,8 +196,12 @@ public class OperacionesCRUD {
     }
 
     public boolean borrarPedido(int id) {
-        /* resto del codigo a implementar por el alumno */
-
+        for (Pedido p : pedidos) {
+            if (p.getNumeroPedido() == id) {
+                pedidos.remove(p);
+                return true;
+            }
+        }
         return false;
     }
 
