@@ -230,8 +230,15 @@ public class Menu {
     }
 
     private void buscarCliente(Scanner sc) {
-        /* resto del codigo a implementar por el alumno */
-
+        int numeroCliente;
+        System.out.println("Introduce el número de cliente a buscar: ");
+        numeroCliente = sc.nextInt();
+        Cliente cliente = crud.buscarCliente(numeroCliente);
+        if (cliente != null) {
+            System.out.println("Cliente encontrado: " + cliente.getNumeroCliente() + " " + cliente.getEmpresa() + " " + cliente.getLimiteCredito());
+        } else {
+            System.err.println("NO SE PUEDE BUSCAR (NO EXISTE)");
+        }
     }
 
     private void listarProductos() {

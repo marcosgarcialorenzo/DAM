@@ -144,9 +144,11 @@ public class OperacionesCRUD {
     }
 
     public Cliente buscarCliente(int id) {
-        /* resto del codigo a implementar por el alumno */
-
-
+        for(Cliente c: clientes){
+            if (c.getNumeroCliente() == id) {
+                return c;
+            }
+        }
         return null;
     }
 
