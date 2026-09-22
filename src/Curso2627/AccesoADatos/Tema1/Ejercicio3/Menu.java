@@ -349,7 +349,7 @@ public class Menu {
         }
     }
 
-    private void relacionOficinaVendedorCliente() { //21. Mostrar todas las oficinas juntos con sus vendedores y clientes");
+    private void relacionOficinaVendedorCliente() { //21. Mostrar todas las oficinas juntos con sus vendedores y clientes;
         String resultado = crud.MostrarOficinasVendedoresClientes();
         if (resultado.isEmpty()) {
             System.out.println("NO HAY OFICINAS");

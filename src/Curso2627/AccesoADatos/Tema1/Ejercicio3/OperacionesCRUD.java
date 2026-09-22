@@ -245,7 +245,7 @@ public class OperacionesCRUD {
     }
 
     public Vendedor MostrarVendedorConMasVentas() {
-        Vendedor max = vendedores.get(0);
+        Vendedor max = vendedores.get(0); //también se puede poder .getFirst()
         for (Vendedor v : vendedores) {
             if (v.getVentas() > max.getVentas()) {
                 max = v;
