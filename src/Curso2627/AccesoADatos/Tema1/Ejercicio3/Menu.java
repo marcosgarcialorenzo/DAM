@@ -376,8 +376,12 @@ public class Menu {
         }
     }
 
-    private void productoMenorStock() {
-        /* resto del codigo a implementar por el alumno */
-
+    private void productoMenorStock() { // ("24. Mostrar el Producto que tenga el MENOR stock");
+        Producto producto = crud.MostrarProductoconMenorStock();
+        if (producto != null) {
+            System.out.println("Producto con menor stock es: " + producto.getDescripcion() + " con " + producto.getExistencias());
+        } else {
+            System.err.println("NO HAY PRODUCTOS");
+        }
     }
 }

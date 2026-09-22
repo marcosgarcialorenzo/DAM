@@ -266,9 +266,11 @@ public class OperacionesCRUD {
 
     public Producto MostrarProductoconMenorStock() {
         Producto min = productos.get(0);
-
-        /* resto del codigo a implementar por el alumno */
-
+        for (Producto p: productos) {
+            if (p.getExistencias() < min.getExistencias()) {
+                min = p;
+            }
+        }
         return min;
     }
 }
