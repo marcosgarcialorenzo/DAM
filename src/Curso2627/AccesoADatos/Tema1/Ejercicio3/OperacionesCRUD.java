@@ -81,8 +81,11 @@ public class OperacionesCRUD {
     }
 
     public Oficina buscarOficina(int id) {
-        /* resto del codigo a implementar por el alumno */
-
+        for (Oficina o : oficinas) {
+            if (o.getNumeroOficina() == id) {
+                return o;
+            }
+        }
         return null;
     }
 

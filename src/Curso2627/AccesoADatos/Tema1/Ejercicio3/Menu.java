@@ -129,7 +129,16 @@ public class Menu {
     }
 
     private void buscarOficina(Scanner sc) {
-        /* resto del codigo a implementar por el alumno */
+        int numeroOficina;
+        System.out.println("Introduce el número de oficina a buscar: ");
+        numeroOficina = sc.nextInt();
+        Oficina oficina = crud.buscarOficina(numeroOficina);
+        if (oficina != null) {
+            System.out.println("Oficina encontrada: " + oficina.getNumeroOficina() + " " + oficina.getCiudad() + " " + oficina.getRegion() + " " + oficina.getNumeroDirector() + " " + oficina.getObjetivo() + " " + oficina.getVentas());
+        }
+        else {
+            System.err.println("NO SE PUEDE BUSCAR (NO EXISTE)");
+        }
     }
 
     private void listarVendedores() {
