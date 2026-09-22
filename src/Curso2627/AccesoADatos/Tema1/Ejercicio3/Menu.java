@@ -338,8 +338,15 @@ public class Menu {
     }
 
     private void buscarPedido(Scanner sc) {
-        /* resto del codigo a implementar por el alumno */
-
+        int numeroPedido;
+        System.out.print("Introduzca el número del pedido a buscar: ");
+        numeroPedido = sc.nextInt();
+        Pedido pedido = crud.buscarPedido(numeroPedido);
+        if (pedido != null) {
+            System.out.println("Pedido encontrado: " + pedido.getNumeroPedido() + " " + pedido.getFechaPedido() + " " + pedido.getImporte());
+        } else {
+            System.err.println("NO SE PUEDE BUSCAR (NO EXISTE)");
+        }
     }
 
     private void relacionOficinaVendedorCliente() {

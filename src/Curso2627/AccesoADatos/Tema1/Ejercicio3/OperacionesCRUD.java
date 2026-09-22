@@ -206,9 +206,11 @@ public class OperacionesCRUD {
     }
 
     public Pedido buscarPedido(int id) {
-        /* resto del codigo a implementar por el alumno */
-
-
+        for (Pedido p : pedidos) {
+            if (p.getNumeroPedido() == id) {
+                return p;
+            }
+        }
         return null;
     }
 
