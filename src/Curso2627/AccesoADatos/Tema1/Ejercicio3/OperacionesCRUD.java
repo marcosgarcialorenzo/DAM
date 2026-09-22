@@ -246,9 +246,11 @@ public class OperacionesCRUD {
 
     public Vendedor MostrarVendedorConMasVentas() {
         Vendedor max = vendedores.get(0);
-
-        /* resto del codigo a implementar por el alumno */
-
+        for (Vendedor v : vendedores) {
+            if (v.getVentas() > max.getVentas()) {
+                max = v;
+            }
+        }
         return max;
     }
 

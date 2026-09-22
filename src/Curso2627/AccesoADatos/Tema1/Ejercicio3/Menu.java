@@ -358,9 +358,13 @@ public class Menu {
         }
     }
 
-    private void vendedorMasVentas() {
-        /* resto del codigo a implementar por el alumno */
-
+    private void vendedorMasVentas() { //("22. Mostrar el Vendedor que tiene MÁS ventas");
+        Vendedor vendedor = crud.MostrarVendedorConMasVentas();
+        if (vendedor != null) {
+            System.out.println("Vendedor con más ventas es: " + vendedor.getNombre() + " con " + vendedor.getVentas());
+        } else {
+            System.err.println("NO HAY VENDEDORES");
+        }
     }
 
     private void clienteMayorCredito() {
