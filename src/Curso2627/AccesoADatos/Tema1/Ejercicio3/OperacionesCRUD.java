@@ -103,8 +103,12 @@ public class OperacionesCRUD {
     }
 
     public boolean borrarVendedor(int id) {
-        /* resto del codigo a implementar por el alumno */
-
+        for (Vendedor v: vendedores) {
+            if (v.getNumeroEmpleado() == id) {
+                vendedores.remove(v);
+                return true;
+            }
+        }
         return false;
     }
 

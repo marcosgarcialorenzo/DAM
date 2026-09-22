@@ -122,8 +122,7 @@ public class Menu {
         numeroOficina = sc.nextInt();
         if (crud.borrarOficina(numeroOficina)) {
             System.out.println("Oficina " + numeroOficina + " borrada correctamente.");
-        }
-        else {
+        } else {
             System.err.println("NO SE PUEDE BORRAR (NO EXISTE)");
         }
     }
@@ -135,8 +134,7 @@ public class Menu {
         Oficina oficina = crud.buscarOficina(numeroOficina);
         if (oficina != null) {
             System.out.println("Oficina encontrada: " + oficina.getNumeroOficina() + " " + oficina.getCiudad() + " " + oficina.getRegion() + " " + oficina.getNumeroDirector() + " " + oficina.getObjetivo() + " " + oficina.getVentas());
-        }
-        else {
+        } else {
             System.err.println("NO SE PUEDE BUSCAR (NO EXISTE)");
         }
     }
@@ -175,8 +173,14 @@ public class Menu {
     }
 
     private void borrarVendedor(Scanner sc) {
-        /* resto del codigo a implementar por el alumno */
-
+        int numeroEmpleado;
+        System.out.println("Introduce el número de empleado a borrar: ");
+        numeroEmpleado = sc.nextInt();
+        if (crud.borrarVendedor(numeroEmpleado)) {
+            System.out.println("Vendedor " + numeroEmpleado + " borrado correctamente.");
+        } else {
+            System.err.println("NO SE PUEDE BORRAR (NO EXISTE)");
+        }
     }
 
     private void buscarVendedor(Scanner sc) {
