@@ -349,9 +349,13 @@ public class Menu {
         }
     }
 
-    private void relacionOficinaVendedorCliente() {
-        /* resto del codigo a implementar por el alumno */
-
+    private void relacionOficinaVendedorCliente() { //21. Mostrar todas las oficinas juntos con sus vendedores y clientes");
+        String resultado = crud.MostrarOficinasVendedoresClientes();
+        if (resultado.isEmpty()) {
+            System.out.println("NO HAY OFICINAS");
+        } else {
+            System.out.println(resultado);
+        }
     }
 
     private void vendedorMasVentas() {

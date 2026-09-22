@@ -216,9 +216,31 @@ public class OperacionesCRUD {
 
     public String MostrarOficinasVendedoresClientes() {
         StringBuilder sb = new StringBuilder();
-
-        /* resto del codigo a implementar por el alumno */
-
+        for (Oficina oficina : oficinas) {
+            sb.append("OFICINA ").append(oficina.getNumeroOficina()).append(" - ").append(oficina.getCiudad()).append(System.lineSeparator());
+            boolean tieneVendedores = false;
+            for (Vendedor vendedor : vendedores) {
+                if (vendedor.getNumeroOficina() != oficina.getNumeroOficina()) {
+                    continue;
+                }
+                tieneVendedores = true;
+                sb.append("  Vendedor: ").append(vendedor.getNombre()).append(System.lineSeparator());
+                boolean tieneClientes = false;
+                for (Cliente cliente : clientes) {
+                    if (cliente.getNumeroEmpleado() != vendedor.getNumeroEmpleado()) {
+                        continue;
+                    }
+                    tieneClientes = true;
+                    sb.append("    Cliente: ").append(cliente.getEmpresa()).append(System.lineSeparator());
+                }
+                if (!tieneClientes) {
+                    sb.append("    Sin clientes").append(System.lineSeparator());
+                }
+            }
+            if (!tieneVendedores) {
+                sb.append(System.lineSeparator());
+            }
+        }
         return sb.toString();
     }
 
