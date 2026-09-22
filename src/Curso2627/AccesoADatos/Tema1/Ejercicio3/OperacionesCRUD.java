@@ -103,7 +103,7 @@ public class OperacionesCRUD {
     }
 
     public boolean borrarVendedor(int id) {
-        for (Vendedor v: vendedores) {
+        for (Vendedor v : vendedores) {
             if (v.getNumeroEmpleado() == id) {
                 vendedores.remove(v);
                 return true;
@@ -113,7 +113,7 @@ public class OperacionesCRUD {
     }
 
     public Vendedor buscarVendedor(int id) {
-        for (Vendedor v: vendedores) {
+        for (Vendedor v : vendedores) {
             if (v.getNumeroEmpleado() == id) {
                 return v;
             }
@@ -144,7 +144,7 @@ public class OperacionesCRUD {
     }
 
     public Cliente buscarCliente(int id) {
-        for(Cliente c: clientes){
+        for (Cliente c : clientes) {
             if (c.getNumeroCliente() == id) {
                 return c;
             }
@@ -165,9 +165,12 @@ public class OperacionesCRUD {
     }
 
     public boolean borrarProducto(String cod) {
-
-        /* resto del codigo a implementar por el alumno */
-
+        for (Producto p : productos) {
+            if (p.getCodigoProducto().equalsIgnoreCase(cod)) {
+                productos.remove(p);
+                return true;
+            }
+        }
         return false;
     }
 

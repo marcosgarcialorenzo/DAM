@@ -266,8 +266,14 @@ public class Menu {
     }
 
     private void borrarProducto(Scanner sc) {
-        /* resto del codigo a implementar por el alumno */
-
+        String codigoProducto;
+        System.out.print("Código producto: ");
+        codigoProducto = sc.nextLine();
+        if (crud.borrarProducto(codigoProducto)) {
+            System.out.println("Producto " + codigoProducto + " borrado correctamente.");
+        } else {
+            System.err.println("NO SE PUEDE BORRAR (NO EXISTE)");
+        }
     }
 
     private void buscarProducto(Scanner sc) {
