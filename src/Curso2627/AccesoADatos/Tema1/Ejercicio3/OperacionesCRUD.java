@@ -221,14 +221,14 @@ public class OperacionesCRUD {
             boolean tieneVendedores = false;
             for (Vendedor vendedor : vendedores) {
                 if (vendedor.getNumeroOficina() != oficina.getNumeroOficina()) {
-                    continue;
+                    continue; // para saltar a la siguiente iteración del bucle si el vendedor no pertenece a la oficina actual
                 }
                 tieneVendedores = true;
                 sb.append("  Vendedor: ").append(vendedor.getNombre()).append(System.lineSeparator());
                 boolean tieneClientes = false;
                 for (Cliente cliente : clientes) {
                     if (cliente.getNumeroEmpleado() != vendedor.getNumeroEmpleado()) {
-                        continue;
+                        continue; // para saltar a la siguiente iteración del bucle si el cliente no pertenece al vendedor actual
                     }
                     tieneClientes = true;
                     sb.append("    Cliente: ").append(cliente.getEmpresa()).append(System.lineSeparator());
