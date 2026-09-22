@@ -277,8 +277,15 @@ public class Menu {
     }
 
     private void buscarProducto(Scanner sc) {
-        /* resto del codigo a implementar por el alumno */
-
+        String codigoProducto;
+        System.out.print("Introduzca el código del producto: ");
+        codigoProducto = sc.nextLine();
+        Producto producto = crud.buscarProducto(codigoProducto);
+        if (crud.buscarProducto(codigoProducto) != null) {
+            System.out.println("Producto encontrado: " + producto.getCodigoProducto() + " " + producto.getDescripcion() + " " + producto.getExistencias());
+        } else {
+            System.err.println("NO SE PUEDE BUSCAR (NO EXISTE)");
+        }
     }
 
     private void listarPedidos() {

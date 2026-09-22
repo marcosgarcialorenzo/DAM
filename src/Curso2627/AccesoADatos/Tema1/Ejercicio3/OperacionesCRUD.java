@@ -175,9 +175,11 @@ public class OperacionesCRUD {
     }
 
     public Producto buscarProducto(String cod) {
-        /* resto del codigo a implementar por el alumno */
-
-
+        for (Producto p: productos) {
+            if (p.getCodigoProducto().equalsIgnoreCase(cod)) {
+                return p;
+            }
+        }
         return null;
     }
 
