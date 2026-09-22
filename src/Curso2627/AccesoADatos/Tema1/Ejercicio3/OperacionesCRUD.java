@@ -113,8 +113,11 @@ public class OperacionesCRUD {
     }
 
     public Vendedor buscarVendedor(int id) {
-        /* resto del codigo a implementar por el alumno */
-
+        for (Vendedor v: vendedores) {
+            if (v.getNumeroEmpleado() == id) {
+                return v;
+            }
+        }
         return null;
     }
 

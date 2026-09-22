@@ -184,7 +184,15 @@ public class Menu {
     }
 
     private void buscarVendedor(Scanner sc) {
-        /* resto del codigo a implementar por el alumno */
+        int numeroEmpleado;
+        System.out.println("Introduce el número de empleado a buscar: ");
+        numeroEmpleado = sc.nextInt();
+        Vendedor vendedor = crud.buscarVendedor(numeroEmpleado);
+        if (vendedor != null) {
+            System.out.println("Vendedor encontrado: " + vendedor.getNumeroEmpleado() + " " + vendedor.getNombre() + " " + vendedor.getVentas());
+        } else {
+            System.err.println("NO SE PUEDE BUSCAR (NO EXISTE)");
+        }
 
     }
 
