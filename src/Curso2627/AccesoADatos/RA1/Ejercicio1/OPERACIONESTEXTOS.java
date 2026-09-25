@@ -114,8 +114,17 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void copiarFicheroConFin(String rutaOrigen, String rutaDestino) {
-
-
+        try (FileReader fr = new FileReader(rutaOrigen)) {
+            try (FileWriter fw = new FileWriter(rutaDestino)) {
+                int c;
+                while ((c = fr.read()) != -1) {
+                    fw.write(c);
+                }
+                fw.write("\nFin del fichero");
+            }
+        } catch(IOException e){
+            System.err.println("Error al copiar el fichero: " + e.getMessage());
+        }
     }
 
     public static void separarParesImpares(String rutaFichero, String rutaPares, String rutaImpares) {
