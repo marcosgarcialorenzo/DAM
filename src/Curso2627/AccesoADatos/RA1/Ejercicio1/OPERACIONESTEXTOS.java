@@ -128,8 +128,36 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void separarParesImpares(String rutaFichero, String rutaPares, String rutaImpares) {
-
-
+        try (FileReader fr = new FileReader(rutaFichero)) {
+            try (FileWriter fw = new FileWriter(rutaPares)) {
+                int contador = 0;
+                int c;
+                while ((c = fr.read()) != -1) {
+                    if ((contador + 1) % 2 == 0) {
+                        fw.write(c);
+                    }
+                    contador++;
+                }
+                fw.write("\nFin PARES");
+            }
+        } catch(IOException e){
+            System.err.println("Error al copiar el fichero: " + e.getMessage());
+        }
+        try (FileReader fr = new FileReader(rutaFichero)) {
+            try (FileWriter fw = new FileWriter(rutaImpares)) {
+                int contador = 0;
+                int c;
+                while ((c = fr.read()) != -1) {
+                    if ((contador + 1) % 2 != 0) {
+                        fw.write(c);
+                    }
+                    contador++;
+                }
+                fw.write("\nFin IMPARES");
+            }
+        } catch(IOException e){
+            System.err.println("Error al copiar el fichero: " + e.getMessage());
+        }
     }
 
     public static void buscarLinea(String rutaFichero, String lineaBuscada) {
