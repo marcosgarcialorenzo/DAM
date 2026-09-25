@@ -86,8 +86,14 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void escribirFichero(String rutaFichero, String[] lineas) {
-
-
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(rutaFichero))) {
+            for (String linea : lineas) {
+                bw.write(linea);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            System.err.println("Error al escribir en el fichero: " + e.getMessage());
+        }
     }
 
     public static void escribirLineasImpares(String rutaFichero, String[] lineas) {
