@@ -54,7 +54,7 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void leerLineas(String rutaFichero) {
-        try(BufferedReader br = new BufferedReader(new FileReader(rutaFichero))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaFichero))) {
             String linea;
             int contador = 0;
             while ((linea = br.readLine()) != null) {
@@ -69,7 +69,7 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void leerLineasPares(String rutaFichero) {
-        try(BufferedReader br = new BufferedReader(new FileReader(rutaFichero))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaFichero))) {
             String linea;
             int contador = 0;
             while ((linea = br.readLine()) != null) {
@@ -86,7 +86,7 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void escribirFichero(String rutaFichero, String[] lineas) {
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(rutaFichero))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaFichero))) {
             for (String linea : lineas) {
                 bw.write(linea);
                 bw.newLine();
@@ -97,8 +97,20 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void escribirLineasImpares(String rutaFichero, String[] lineas) {
-
-
+        int contador = 0;
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaFichero))) {
+            for (String linea : lineas) {
+                if (linea != null) {
+                    if ((contador + 1) % 2 != 0) {
+                        bw.write(linea);
+                        bw.newLine();
+                    }
+                }
+                contador++;
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void copiarFicheroConFin(String rutaOrigen, String rutaDestino) {

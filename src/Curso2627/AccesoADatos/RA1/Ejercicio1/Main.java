@@ -8,7 +8,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
 
-        while (opcion != 0) {
+        while (opcion != 13) {
             System.out.println("\n--- MENÚ OPERACIONES TEXTO ---");
             System.out.println("1. Información de fichero y listado de directorio");
             System.out.println("2. Crear archivo y directorio");
@@ -22,7 +22,7 @@ public class Main {
             System.out.println("10. Buscar línea en fichero");
             System.out.println("11. Copiar líneas mayores a 10 caracteres");
             System.out.println("12. Copiar fichero completo");
-            System.out.println("0. Salir");
+            System.out.println("13. Salir");
             System.out.print("Seleccione una opción: ");
 
             opcion = sc.nextInt();
@@ -111,7 +111,7 @@ public class Main {
                     String rutaDestino12 = sc.nextLine();
                     OPERACIONESTEXTOS.copiarFicheros(rutaOrigen12, rutaDestino12);
                     break;
-                case 0:
+                case 13:
                     System.out.println("FIN DEL PROGRAMA.");
                     break;
                 default:
