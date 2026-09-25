@@ -122,7 +122,7 @@ public class OPERACIONESTEXTOS {
                 }
                 fw.write("\nFin del fichero");
             }
-        } catch(IOException e){
+        } catch (IOException e) {
             System.err.println("Error al copiar el fichero: " + e.getMessage());
         }
     }
@@ -140,7 +140,7 @@ public class OPERACIONESTEXTOS {
                 }
                 fw.write("\nFin PARES");
             }
-        } catch(IOException e){
+        } catch (IOException e) {
             System.err.println("Error al copiar el fichero: " + e.getMessage());
         }
         try (FileReader fr = new FileReader(rutaFichero)) {
@@ -155,14 +155,35 @@ public class OPERACIONESTEXTOS {
                 }
                 fw.write("\nFin IMPARES");
             }
-        } catch(IOException e){
+        } catch (IOException e) {
             System.err.println("Error al copiar el fichero: " + e.getMessage());
         }
     }
 
-    public static void buscarLinea(String rutaFichero, String lineaBuscada) {
-
-
+    public static void buscarPalabra(String rutaFichero, String palabraBuscada) {
+        try (BufferedReader br = new BufferedReader(new FileReader(rutaFichero))) {
+            String linea;
+            int contador = 0;
+            boolean encontrada = false;
+            String palabras[] = null;
+            while ((linea = br.readLine()) != null) {
+                palabras = linea.split(" ");
+                for (int i = 0; i < palabras.length; i++) {
+                    if (palabras[i].equals(palabraBuscada)) {
+                        System.out.println("Línea " + (contador + 1) + ": " + linea);
+                        encontrada = true;
+                    }
+                }
+                contador++;
+            }
+            if (!encontrada) {
+                System.out.println("No se ha encontrado la palabra '" + palabraBuscada + "' en el fichero.");
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("No se ha encontrado el fichero: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("Error al leer el fichero: " + e.getMessage());
+        }
     }
 
     public static void copiarLineasMayores10(String rutaEntrada, String rutaSalida) {

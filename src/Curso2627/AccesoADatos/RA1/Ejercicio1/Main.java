@@ -95,7 +95,7 @@ public class Main {
                     String rutaF10 = sc.nextLine();
                     System.out.print("Texto a buscar: ");
                     String lineaBuscada = sc.nextLine();
-                    OPERACIONESTEXTOS.buscarLinea(rutaF10, lineaBuscada);
+                    OPERACIONESTEXTOS.buscarPalabra(rutaF10, lineaBuscada);
                     break;
                 case 11:
                     System.out.print("Ruta del fichero de entrada: ");
