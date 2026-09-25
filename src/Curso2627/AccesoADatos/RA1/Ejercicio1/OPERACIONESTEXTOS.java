@@ -54,8 +54,18 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void leerLineas(String rutaFichero) {
-
-
+        try(BufferedReader br = new BufferedReader(new FileReader(rutaFichero))) {
+            String linea;
+            int contador = 0;
+            while ((linea = br.readLine()) != null) {
+                System.out.println("Línea " + (contador + 1) + ": " + linea);
+                contador++;
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("No se ha encontrado el fichero: " + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("Error al leer el fichero: " + e.getMessage());
+        }
     }
 
     public static void leerLineasPares(String rutaFichero) {
