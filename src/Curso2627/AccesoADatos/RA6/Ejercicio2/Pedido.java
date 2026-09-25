@@ -1,4 +1,4 @@
-package Curso2627.AccesoADatos.Tema1.Ejercicio2;
+package Curso2627.AccesoADatos.RA6.Ejercicio2;
 
 import lombok.Data;
 import lombok.ToString;

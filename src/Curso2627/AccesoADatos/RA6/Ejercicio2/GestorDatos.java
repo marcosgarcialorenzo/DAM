@@ -1,15 +1,17 @@
-package Curso2627.AccesoADatos.Tema1.Ejercicio1;
+package Curso2627.AccesoADatos.RA6.Ejercicio2;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GestorDatos {
+    private List<Pedido> pedidos;
     private List<Cliente> clientes;
     private List<Producto> productos;
 
     public GestorDatos() {
         clientes = new ArrayList<>();
         productos = new ArrayList<>();
+        pedidos = new ArrayList<>();
         cargarDatosIniciales();
     }
 
@@ -35,7 +37,20 @@ public class GestorDatos {
         productos.add(new Producto(8, "Impresora multifunción", 129.50));
         productos.add(new Producto(9, "Alfombrilla gaming", 12.99));
         productos.add(new Producto(10, "Hub USB 3.0", 17.49));
+
+        pedidos.add(new Pedido(1, "Pedido ratón para Carlos", 2, 1, 1));
+        pedidos.add(new Pedido(2, "Teclado mecánico para Ana", 1, 2, 2));
+        pedidos.add(new Pedido(3, "Monitor para Maximiliano", 1, 3, 3));
+        pedidos.add(new Pedido(4, "Auriculares para Lucía", 3, 4, 4));
+        pedidos.add(new Pedido(5, "Webcam para Jorge", 1, 5, 5));
+        pedidos.add(new Pedido(6, "Silla ergonómica para Beatriz", 1, 6, 6));
+        pedidos.add(new Pedido(7, "SSD para Santiago", 2, 7, 7));
+        pedidos.add(new Pedido(8, "Impresora para Marina", 1, 8, 8));
+        pedidos.add(new Pedido(9, "Alfombrilla para Felipe", 4, 9, 9));
+        pedidos.add(new Pedido(10, "Hub USB para Valeria", 2, 10, 10));
     }
+
+    // CLIENTES
 
     public List<Cliente> obtenerClientes() {
         return clientes;
@@ -60,6 +75,8 @@ public class GestorDatos {
         return false;
     }
 
+    //PRODUCTOS
+
     public List<Producto> obtenerProductos() {
         return productos;
     }
@@ -81,5 +98,48 @@ public class GestorDatos {
             }
         }
         return false;
+    }
+
+    // PEDIDOS
+
+    public List<Pedido> obtenerPedidos() {
+        return pedidos;
+    }
+
+    public boolean agregarPedido(Pedido pedido) {
+        if (!existePedido(pedido.getId())) {
+            pedidos.add(pedido);
+            return true;
+        } else {
+            System.err.println("Error: Ya existe un pedido con el ID " + pedido.getId());
+            return false;
+        }
+    }
+
+    private boolean existePedido(int id) {
+        for (Pedido p : pedidos) {
+            if (p.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    String obtenerNombreCliente(int idCliente) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getId() == idCliente) {
+                return cliente.getNombre();
+            }
+        }
+        return null;
+    }
+
+    String obtenerNombreProducto(int idProducto) {
+        for (Producto producto : productos) {
+            if (producto.getId() == idProducto) {
+                return producto.getNombre();
+            }
+        }
+        return null;
     }
 }

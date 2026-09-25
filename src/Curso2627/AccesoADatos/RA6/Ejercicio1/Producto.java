@@ -1,12 +1,10 @@
-package Curso2627.AccesoADatos.Tema1.Ejercicio2;
+package Curso2627.AccesoADatos.RA6.Ejercicio1;
 
 import lombok.Data;
-import lombok.ToString;
 
 import java.io.Serializable;
 
 @Data
-@ToString
 public class Producto implements Serializable {
     private int id;
     private String nombre;

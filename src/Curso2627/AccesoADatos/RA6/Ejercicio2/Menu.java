@@ -1,4 +1,4 @@
-package Curso2627.AccesoADatos.Tema1.Ejercicio1;
+package Curso2627.AccesoADatos.RA6.Ejercicio2;
 
 import java.util.Scanner;
 
@@ -21,7 +21,11 @@ public class Menu {
             System.out.println("4. Agregar Producto");
             System.out.println("5. Producto con precio más alto");
             System.out.println("6. Cliente con el nombre más largo");
-            System.out.println("7. Salir");
+            System.out.println("7. Listar Pedidos");
+            System.out.println("8. Agregar Pedido");
+            System.out.println("9. Listar Pedidos por Cliente");
+            System.out.println("10. Listar Pedidos con detalles de Cliente y Producto");
+            System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
 
             opcion = scanner.nextInt();
@@ -34,11 +38,15 @@ public class Menu {
                 case 4 -> agregarProducto(scanner);
                 case 5 -> productoPrecioMasAlto();
                 case 6 -> clienteNombreMasLargo();
-                case 7 -> System.out.println("Fin!");
+                case 7 -> listarPedidos();
+                case 8 -> agregarPedido(scanner);
+                case 9 -> listarPedidosPorCliente(scanner);
+                case 10 -> listarPedidosConDetalles(scanner);
+                case 0 -> System.out.println("Saliendo del programa...");
                 default -> System.out.println("Opción errónea, intente de nuevo.");
             }
 
-        } while (opcion != 7);
+        } while (opcion != 0);
 
         scanner.close();
     }
@@ -55,6 +63,40 @@ public class Menu {
             System.out.println("ID: " + producto.getId() + ", Nombre: " + producto.getNombre() +
                     ", Precio: " + producto.getPrecio());
         }
+    }
+
+    public void listarPedidos() {
+        for (Pedido pedido : gestorDatos.obtenerPedidos()) {
+            System.out.println("ID: " + pedido.getId() + ", Descripción: " + pedido.getDescripcion() +
+                    ", Cantidad: " + pedido.getCantidad() + ", ID Cliente: " + pedido.getIdCliente() +
+                    ", ID Producto: " + pedido.getIdProducto());
+        }
+    }
+
+    private void agregarPedido(Scanner scanner) {
+        int id, cantidad, idCliente, idProducto;
+        String descripcion;
+
+        System.out.print("Ingrese el ID del pedido: ");
+        id = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Ingrese la descripción del pedido: ");
+        descripcion = scanner.nextLine();
+
+        System.out.print("Ingrese la cantidad del pedido: ");
+        cantidad = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Ingrese el ID del cliente: ");
+        idCliente = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Ingrese el ID del producto: ");
+        idProducto = scanner.nextInt();
+        scanner.nextLine();
+
+        gestorDatos.agregarPedido(new Pedido(id, descripcion, cantidad, idCliente, idProducto));
     }
 
     private void agregarCliente(Scanner scanner) {
@@ -121,6 +163,35 @@ public class Menu {
             System.out.println("Cliente con nombre más largo: " + clienteConNombreMasLargo.getNombre());
         } else {
             System.out.println("No hay clientes disponibles.");
+        }
+    }
+
+    private void listarPedidosPorCliente(Scanner scanner) {
+        System.out.print("Ingrese el ID del cliente: ");
+        int idCliente = scanner.nextInt();
+        scanner.nextLine();
+
+        boolean encontrado = false;
+        for (Pedido pedido : gestorDatos.obtenerPedidos()) {
+            if (pedido.getIdCliente() == idCliente) {
+                System.out.println("Pedido ID: " + pedido.getId() + ", Nombre: " + pedido.getDescripcion() +
+                        ", Cantidad: " + pedido.getCantidad());
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("No se encontraron pedidos para el cliente con ID " + idCliente);
+        }
+    }
+
+    private void listarPedidosConDetalles(Scanner scanner) {
+        String nombreCliente, nombreProducto;
+        for (Pedido pedido : gestorDatos.obtenerPedidos()) {
+            nombreCliente = gestorDatos.obtenerNombreCliente(pedido.getIdCliente());
+            nombreProducto = gestorDatos.obtenerNombreProducto(pedido.getIdProducto());
+            System.out.println("Pedido ID: " + pedido.getId() + ", Nombre pedido: " + pedido.getDescripcion() +
+                    ", Cantidad: " + pedido.getCantidad() + ", Cliente: " + nombreCliente +
+                    ", Producto: " + nombreProducto);
         }
     }
 }
