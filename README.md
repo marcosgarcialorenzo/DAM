@@ -1,157 +1,169 @@
-
 # DAM
 
-Repositorio personal con ejercicios, prácticas, entregas y exámenes del ciclo formativo de **Desarrollo de Aplicaciones Multiplataforma (DAM)**.
+Repositorio personal de ejercicios, practicas, examenes y material de estudio del ciclo formativo de **Desarrollo de Aplicaciones Multiplataforma (DAM)**.
 
-Este repositorio reúne trabajo de programación en Java, prácticas y ejercicios de acceso a datos (SQL, PLSQL, MongoDB), ejemplos con H2 y pequeños proyectos de repaso. Está pensado como cuaderno de trabajo y estudio del alumno.
+El repositorio esta organizado principalmente por curso y asignatura. La mayoria de los ejercicios son independientes y conservan su estructura original para poder abrirlos y ejecutarlos desde IntelliJ IDEA.
 
----
+## Indice
 
-## 📁 Estructura del proyecto
+- [Estructura general](#estructura-general)
+- [Contenido por curso](#contenido-por-curso)
+- [Practicas principales](#practicas-principales)
+- [Examenes y simulacros](#examenes-y-simulacros)
+- [Ejercicios incompletos o en revision](#ejercicios-incompletos-o-en-revision)
+- [Requisitos](#requisitos)
+- [Compilar y ejecutar](#compilar-y-ejecutar)
+- [Convenciones](#convenciones)
 
-Es un proyecto Maven con `src` como directorio principal de código fuente. A grandes rasgos:
+## Estructura general
 
 ```text
 DAM/
-├── DAM.iml
-├── LICENSE
+├── src/
+│   ├── Curso2425/
+│   │   ├── BasesDeDatos/
+│   │   └── Programacion/
+│   ├── Curso2526/
+│   │   ├── BasesDeDatos/
+│   │   └── Programacion/
+│   └── Curso2627/
+│       └── AccesoADatos/
+├── data/                 # Bases de datos H2 de ejemplo
+├── pom.xml               # Configuracion Maven
 ├── README.md
-├── pom.xml
-├── data/                # ficheros H2 de ejemplo
-│   ├── m3db.mv.db
-│   └── m3db.trace.db
-├── .gitignore
-├── .gitmessage
-├── .idea/
-├── target/
-└── src/
-    ├── Curso2425/
-    ├── Curso2526/
-    │   ├── BasesDeDatos/
-    │   └── Programacion/
-    │       ├── A/ .. N/  # ejercicios organizados por bloques
-    │       ├── ExamenesMGL/
-    │       ├── Teclado.java
-    │       └── TecladoGrafico.java
-    └── Curso2627/
-        ├── AccesoADatos/
-        └── RepasoVerano/
+└── LICENSE
 ```
 
-> El árbol anterior está resumido. Cada carpeta contiene ejercicios, soluciones, enunciados y recursos por tema.
+Dentro de `src` tambien hay recursos asociados a los ejercicios, como PDFs, scripts SQL, ficheros de texto, CSV, DAT y ZIPs de entregas.
 
----
+## Contenido por curso
 
-## 🧩 Qué contiene
+### Curso 2024-2025
 
-- Ejercicios y soluciones de programación Java (bloques A–N).
-- Prácticas y pruebas de bases de datos: SQL, PLSQL y MongoDB.
-- Exámenes y ejercicios corregidos (varias convocatorias).
-- Recursos adicionales: PDFs, scripts SQL, ficheros de datos y ejemplos de conexión (p. ej. H2 en `data/`).
-- Clases utilitarias de entrada como `Teclado.java` y ejemplos con interfaz como `TecladoGrafico.java`.
+`src/Curso2425/`
 
----
+- `Programacion/`: ejercicios y examenes de Java.
+- `BasesDeDatos/`: ejercicios y examenes de SQL, PLSQL y MongoDB.
+- Incluye material de convocatorias ordinarias y soluciones de ejercicios de bases de datos.
 
-## 🛠️ Tecnologías y dependencias
+### Curso 2025-2026
 
-- Java 21 (configurado en `pom.xml`)
-- Maven
-- Lombok (si se usa en ejercicios concretos)
-- H2 Database (ficheros de ejemplo en `data/`)
-- SQL / PLSQL / MongoDB
-- Archivos de apoyo: `.txt`, `.csv`, `.json`, `.xml`, PDFs
-- IDE recomendado: IntelliJ IDEA
+`src/Curso2526/`
 
-En `pom.xml` se declaran las dependencias más relevantes (p. ej. Lombok, H2) y la configuración del compilador para Java 21.
+- `Programacion/`: ejercicios de Java organizados por bloques de aprendizaje (`A` a `N`), desde fundamentos y orientacion a objetos hasta ficheros, colecciones, lambdas y acceso a datos.
+- `Programacion/ExamenesMGL/`: examenes, simulacros y practicas de evaluacion.
+- `Programacion/HundirLaFlota/`: proyecto de consola con varias clases relacionadas.
+- `Programacion/M/`: ejercicios de acceso a datos, DAO, H2 y una practica de pizzeria.
+- `BasesDeDatos/SQL/`: ejercicios de SQL, tablas, consultas y vistas.
+- `BasesDeDatos/MongoDB/`: colecciones, consultas y soluciones.
+- `BasesDeDatos/UT08 PLSQL/`: procedimientos, funciones, cursores y triggers.
 
----
+### Curso 2026-2027
 
-## ▶️ Cómo compilar y ejecutar
+`src/Curso2627/`
 
-1) Compilar con Maven (desde la raíz del proyecto):
+- `AccesoADatos/RA1/Ejercicio1/`: operaciones con ficheros y directorios.
+- `AccesoADatos/RA6/Ejercicio1/`: gestion basica de clientes y productos.
+- `AccesoADatos/RA6/Ejercicio2/`: gestion de clientes, productos y pedidos.
+- `AccesoADatos/RA6/Ejercicio3/`: operaciones CRUD con clientes, productos, pedidos, oficinas y vendedores.
+
+## Practicas principales
+
+Estas son las practicas que tienen una estructura mas cercana a un proyecto completo:
+
+| Practica | Ubicacion | Ejecucion |
+|---|---|---|
+| Hundir la flota | `src/Curso2526/Programacion/E/HundirLaFlota/` | Ejecutar `Curso2526.Programacion.E.HundirLaFlota.Main` |
+| DAO de personas | `src/Curso2526/Programacion/M/M1/` | Ejecutar `Curso2526.Programacion.M.M1.Main` |
+| DAO de coches | `src/Curso2526/Programacion/M/M2/` | Ejecutar `Curso2526.Programacion.M.M2.ui.Main` |
+| Pizzeria con H2 | `src/Curso2526/Programacion/M/Pizzeria/` | Ejecutar la clase `Pizzeria` desde IntelliJ |
+| Operaciones de texto | `src/Curso2627/AccesoADatos/RA1/Ejercicio1/` | Ejecutar `Curso2627.AccesoADatos.RA1.Ejercicio1.Main` |
+| Clientes y productos | `src/Curso2627/AccesoADatos/RA6/Ejercicio1/` | Ejecutar `Curso2627.AccesoADatos.RA6.Ejercicio1.Main` |
+| Pedidos | `src/Curso2627/AccesoADatos/RA6/Ejercicio2/` | Ejecutar `Curso2627.AccesoADatos.RA6.Ejercicio2.Main` |
+| CRUD | `src/Curso2627/AccesoADatos/RA6/Ejercicio3/` | Ejecutar `Curso2627.AccesoADatos.RA6.Ejercicio3.Main` |
+
+Los nombres completos de clase son orientativos para las practicas que tienen `main`. Los ejercicios pequenos pueden tener varias clases ejecutables o depender de ficheros situados en su propia carpeta; en esos casos es preferible abrir la clase desde IntelliJ y ejecutarla con su configuracion.
+
+## Examenes y simulacros
+
+Los examenes se conservan separados del resto de ejercicios para que sea facil localizarlos:
+
+- `src/Curso2425/Programacion/Examenes/`
+- `src/Curso2425/BasesDeDatos/Examenes/`
+- `src/Curso2526/Programacion/ExamenesMGL/`
+- `src/Curso2526/BasesDeDatos/ExamenesMGL/`
+
+En estas carpetas puede haber enunciados, soluciones, recursos de entrada y entregas comprimidas. Los archivos ZIP representan entregas o copias de ejercicios y no son necesarios para compilar el proyecto principal.
+
+## Ejercicios incompletos o en revision
+
+El repositorio tambien contiene ejercicios empezados o pendientes de completar. Los mas claros actualmente son:
+
+- `src/Curso2627/AccesoADatos/RA1/Ejercicio1/OPERACIONESTEXTOS.java`: contiene metodos declarados pero aun sin implementar, como la creacion de ficheros y directorios, la copia de ficheros y el filtrado de lineas.
+- `src/Curso2627/AccesoADatos/RA6/Ejercicio3/OperacionesCRUD.java`: contiene operaciones CRUD pendientes o con resultados provisionales.
+- `src/Curso2627/AccesoADatos/RA6/Ejercicio2/GestorDatos.java`: algunas busquedas devuelven `null` cuando no encuentran datos; debe comprobarse si es el comportamiento esperado del ejercicio.
+- Las carpetas `Examenes`, `ExamenesMGL` y `Simulacro` deben considerarse material de evaluacion, no necesariamente proyectos terminados.
+
+Esta lista es deliberadamente conservadora: que un metodo devuelva `null` no siempre significa que este incompleto, ya que puede ser parte del comportamiento solicitado por el ejercicio.
+
+## Requisitos
+
+- JDK 21.
+- Maven.
+- IntelliJ IDEA recomendado.
+- Lombok, declarado como dependencia Maven para los ejercicios que lo utilizan.
+- H2, declarado como dependencia Maven para las practicas que acceden a esa base de datos.
+
+La configuracion principal esta en `pom.xml`. El proyecto utiliza `src` como directorio de codigo fuente para conservar la organizacion academica actual.
+
+## Compilar y ejecutar
+
+Desde la raiz del repositorio:
 
 ```bash
 mvn -q compile
 ```
 
-2) Ejecutar una clase con `main` desde la línea de comandos (ejemplo):
+Para ejecutar una clase compilada:
 
 ```bash
-# Compilar
-mvn -q compile
-
-# Ejecutar (reemplaza fully.qualified.MainClass por la clase que quieras ejecutar)
-java -cp target/classes fully.qualified.MainClass
+java -cp target/classes Curso2627.AccesoADatos.RA1.Ejercicio1.Main
 ```
 
-3) Alternativamente puedes ejecutar desde el IDE (IntelliJ):
-   - Importa el proyecto como Maven
-   - Asegúrate de usar JDK 21 en la configuración del proyecto
-   - Ejecuta la clase `main` desde el navegador de proyecto
+Tambien se puede ejecutar cualquier clase con `main` desde IntelliJ IDEA:
 
-4) Usando Maven Exec (si añades o tienes el plugin `exec` configurado):
+1. Importar el proyecto como proyecto Maven.
+2. Seleccionar JDK 21.
+3. Abrir la clase que contiene `main`.
+4. Ejecutarla con **Run**.
 
-```bash
-mvn -q compile exec:java -Dexec.mainClass="fully.qualified.MainClass"
-```
+Algunas practicas necesitan ficheros de entrada relativos a su carpeta. Si una ejecucion no encuentra un recurso, revisar el **Working directory** de la configuracion de IntelliJ y establecer la raiz del repositorio o la carpeta de la practica, segun la ruta utilizada por el ejercicio.
 
-Notas útiles:
-- Algunos ejemplos (p. ej. `TecladoGrafico`) usan Swing/JOptionPane y necesitan entorno gráfico para ejecutarse.
-- Los ficheros H2 en `data/` son de ejemplo; si ejecutas scripts que acceden a la base de datos revisa las rutas.
+La carpeta `data/` contiene archivos H2 de ejemplo. No debe borrarse mientras se utilicen las practicas que se conectan a esa base de datos.
 
----
+## Convenciones
 
-## 🧭 Clases y ejemplos de interés
-
-- `src/Curso2526/Programacion/Teclado.java` — utilidades de entrada por consola.
-- `src/Curso2526/Programacion/TecladoGrafico.java` — ejemplo con interfaz gráfica simple.
-- `src/Curso2627/RepasoVerano/...` — ejercicios de acceso a datos y repasos con mains de ejemplo.
-
-Si quieres que añada instrucciones concretas para ejecutar alguna de estas clases, dímelo y pondré el comando exacto con el nombre completo del paquete.
-
----
-
-## 📝 Convención de commits
-
-Se utiliza una convención tipo Conventional Commits:
+- Los paquetes siguen la organizacion por curso, asignatura y ejercicio.
+- Los ejercicios antiguos mantienen sus nombres originales para no romper paquetes ni rutas.
+- Las clases nuevas deberian utilizar `PascalCase`.
+- Los metodos y variables deberian utilizar `camelCase`.
+- Los commits siguen una convencion similar a Conventional Commits:
 
 ```text
-<tipo>: <descripción corta en imperativo>
+<tipo>: <descripcion corta>
 ```
 
 Tipos habituales:
 
-- `feat`: nueva funcionalidad o ejercicio
-- `fix`: corrección de errores
-- `docs`: documentación o explicación
-- `refactor`: mejora interna sin cambiar comportamiento
+- `feat`: nuevo ejercicio o funcionalidad.
+- `fix`: correccion de un error.
+- `refactor`: reorganizacion interna sin cambiar el comportamiento.
+- `docs`: cambios de documentacion.
 
-Ejemplos:
+## Licencia
 
-```text
-feat(K0): añadir método ordenar empleados por edad
-fix(E7): corregir división por cero
-docs(N1): ampliar comentarios del ejercicio
-```
+Este proyecto se distribuye bajo la licencia MIT. Consulta `LICENSE` para ver el texto completo.
 
----
+## Autor
 
-## 📄 Licencia
-
-Este proyecto está publicado bajo la licencia **MIT**.
-
-Consulta el archivo `LICENSE` para el texto completo.
-
----
-
-## 👤 Autor
-
-**Marcos García Lorenzo**
-
----
-
-Si quieres, puedo:
-- Añadir un índice (TOC) al inicio del README.
-- Preparar un `README` más corto para mostrar en la página principal (resumen) y otro más largo en `/docs`.
-- Crear un patch `git` aplicable o commitearlo en una rama y preparar el `git push` (necesitaría permiso para ejecutar comandos remotos o que me indiques cómo quieres aplicar los cambios).
-
+**Marcos Garcia Lorenzo**
