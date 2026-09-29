@@ -8,7 +8,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int opcion = 0;
 
-        while (opcion != 13) {
+        while (opcion != 14) {
             System.out.println("\n--- MENÚ OPERACIONES TEXTO ---");
             System.out.println("1. Información de fichero y listado de directorio");
             System.out.println("2. Crear archivo y directorio");

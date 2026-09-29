@@ -239,7 +239,50 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void copiarFicheros(String rutaOrigen, String rutaDestino) {
-
+        if (rutaOrigen == null || rutaOrigen.isBlank()
+                || rutaDestino == null || rutaDestino.isBlank()) {
+            System.err.println("Las rutas de origen y destino no pueden estar vacías.");
+            return;
+        }
+        File ficheroOrigen = new File(rutaOrigen);
+        File ficheroDestino = new File(rutaDestino);
+        if (!ficheroOrigen.exists()) {
+            System.err.println("No se ha encontrado el fichero de origen: "
+                    + ficheroOrigen.getPath());
+            return;
+        }
+        if (!ficheroOrigen.isFile()) {
+            System.err.println("La ruta de origen no corresponde a un fichero: "
+                    + ficheroOrigen.getPath());
+            return;
+        }
+        if (!ficheroOrigen.canRead()) {
+            System.err.println("No se puede leer el fichero de origen: "
+                    + ficheroOrigen.getPath());
+            return;
+        }
+        if (ficheroDestino.exists() && !ficheroDestino.canWrite()) {
+            System.err.println("No se puede escribir en el fichero de destino: "
+                    + ficheroDestino.getPath());
+            return;
+        }
+        try (BufferedReader br = new BufferedReader(new FileReader(ficheroOrigen));
+             BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroDestino))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                bw.write(linea);
+                bw.newLine();
+            }
+            System.out.println("Se ha copiado el contenido del fichero '"
+                    + ficheroOrigen.getPath() + "' al fichero '"
+                    + ficheroDestino.getPath() + "'.");
+        } catch (FileNotFoundException e) {
+            System.err.println("No se ha podido abrir alguno de los ficheros: "
+                    + e.getMessage());
+        } catch (IOException e) {
+            System.err.println("Error al leer o escribir los ficheros: " + e.getMessage());
+        } catch (SecurityException e) {
+            System.err.println("No hay permisos suficientes para acceder a los ficheros.");
+        }
     }
-
 }
