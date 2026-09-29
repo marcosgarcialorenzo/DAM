@@ -64,8 +64,7 @@ public class OPERACIONESTEXTOS {
         try (Reader lector = new FileReader(rutaFichero)) {
             int valorUnicode;
             while ((valorUnicode = lector.read()) != -1) {
-                System.out.println("Valor Unicode: " + valorUnicode
-                        + " | Carácter: " + (char) valorUnicode);
+                System.out.println("Valor Unicode: " + valorUnicode + " | Carácter: " + (char) valorUnicode);
                 contador++;
             }
         } catch (FileNotFoundException e) {
@@ -210,36 +209,30 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void copiarLineasMayores10(String rutaEntrada, String rutaSalida) {
-        if (rutaEntrada == null || rutaEntrada.isBlank()
-                || rutaSalida == null || rutaSalida.isBlank()) {
+        if (rutaEntrada == null || rutaEntrada.isBlank() || rutaSalida == null || rutaSalida.isBlank()) {
             System.err.println("Las rutas de entrada y salida no pueden estar vacías.");
             return;
         }
         File ficheroEntrada = new File(rutaEntrada);
         File ficheroSalida = new File(rutaSalida);
         if (!ficheroEntrada.exists()) {
-            System.err.println("No se ha encontrado el fichero de entrada: "
-                    + ficheroEntrada.getPath());
+            System.err.println("No se ha encontrado el fichero de entrada: " + ficheroEntrada.getPath());
             return;
         }
         if (!ficheroEntrada.isFile()) {
-            System.err.println("La ruta de entrada no corresponde a un fichero: "
-                    + ficheroEntrada.getPath());
+            System.err.println("La ruta de entrada no corresponde a un fichero: " + ficheroEntrada.getPath());
             return;
         }
         if (!ficheroEntrada.canRead()) {
-            System.err.println("No se puede leer el fichero de entrada: "
-                    + ficheroEntrada.getPath());
+            System.err.println("No se puede leer el fichero de entrada: " + ficheroEntrada.getPath());
             return;
         }
         if (ficheroSalida.exists() && !ficheroSalida.canWrite()) {
-            System.err.println("No se puede escribir en el fichero de salida: "
-                    + ficheroSalida.getPath());
+            System.err.println("No se puede escribir en el fichero de salida: " + ficheroSalida.getPath());
             return;
         }
         int lineasCopiadas = 0;
-        try (BufferedReader br = new BufferedReader(new FileReader(ficheroEntrada));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroSalida))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(ficheroEntrada)); BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroSalida))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 if (linea.length() > 10) {
@@ -248,12 +241,9 @@ public class OPERACIONESTEXTOS {
                     lineasCopiadas++;
                 }
             }
-            System.out.println("Se han copiado " + lineasCopiadas
-                    + " líneas con más de 10 caracteres en '"
-                    + ficheroSalida.getPath() + "'.");
+            System.out.println("Se han copiado " + lineasCopiadas + " líneas con más de 10 caracteres en '" + ficheroSalida.getPath() + "'.");
         } catch (FileNotFoundException e) {
-            System.err.println("No se ha podido abrir alguno de los ficheros: "
-                    + e.getMessage());
+            System.err.println("No se ha podido abrir alguno de los ficheros: " + e.getMessage());
         } catch (IOException e) {
             System.err.println("Error al leer o escribir los ficheros: " + e.getMessage());
         } catch (SecurityException e) {
@@ -262,46 +252,37 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void copiarFicheros(String rutaOrigen, String rutaDestino) {
-        if (rutaOrigen == null || rutaOrigen.isBlank()
-                || rutaDestino == null || rutaDestino.isBlank()) {
+        if (rutaOrigen == null || rutaOrigen.isBlank() || rutaDestino == null || rutaDestino.isBlank()) {
             System.err.println("Las rutas de origen y destino no pueden estar vacías.");
             return;
         }
         File ficheroOrigen = new File(rutaOrigen);
         File ficheroDestino = new File(rutaDestino);
         if (!ficheroOrigen.exists()) {
-            System.err.println("No se ha encontrado el fichero de origen: "
-                    + ficheroOrigen.getPath());
+            System.err.println("No se ha encontrado el fichero de origen: " + ficheroOrigen.getPath());
             return;
         }
         if (!ficheroOrigen.isFile()) {
-            System.err.println("La ruta de origen no corresponde a un fichero: "
-                    + ficheroOrigen.getPath());
+            System.err.println("La ruta de origen no corresponde a un fichero: " + ficheroOrigen.getPath());
             return;
         }
         if (!ficheroOrigen.canRead()) {
-            System.err.println("No se puede leer el fichero de origen: "
-                    + ficheroOrigen.getPath());
+            System.err.println("No se puede leer el fichero de origen: " + ficheroOrigen.getPath());
             return;
         }
         if (ficheroDestino.exists() && !ficheroDestino.canWrite()) {
-            System.err.println("No se puede escribir en el fichero de destino: "
-                    + ficheroDestino.getPath());
+            System.err.println("No se puede escribir en el fichero de destino: " + ficheroDestino.getPath());
             return;
         }
-        try (BufferedReader br = new BufferedReader(new FileReader(ficheroOrigen));
-             BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroDestino))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(ficheroOrigen)); BufferedWriter bw = new BufferedWriter(new FileWriter(ficheroDestino))) {
             String linea;
             while ((linea = br.readLine()) != null) {
                 bw.write(linea);
                 bw.newLine();
             }
-            System.out.println("Se ha copiado el contenido del fichero '"
-                    + ficheroOrigen.getPath() + "' al fichero '"
-                    + ficheroDestino.getPath() + "'.");
+            System.out.println("Se ha copiado el contenido del fichero '" + ficheroOrigen.getPath() + "' al fichero '" + ficheroDestino.getPath() + "'.");
         } catch (FileNotFoundException e) {
-            System.err.println("No se ha podido abrir alguno de los ficheros: "
-                    + e.getMessage());
+            System.err.println("No se ha podido abrir alguno de los ficheros: " + e.getMessage());
         } catch (IOException e) {
             System.err.println("Error al leer o escribir los ficheros: " + e.getMessage());
         } catch (SecurityException e) {
