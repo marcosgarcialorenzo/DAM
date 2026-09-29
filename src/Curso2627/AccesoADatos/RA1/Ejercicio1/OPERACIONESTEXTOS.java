@@ -32,8 +32,31 @@ public class OPERACIONESTEXTOS {
     }
 
     public static void crearFicheroDirectorio(String rutaDirectorio, String nombreArchivo, String nombreDirectorio) {
-
-
+        File dir = new File(rutaDirectorio);
+        if (!dir.exists()) {
+            System.err.println("El directorio no existe");
+            return;
+        }
+        if (!dir.isDirectory()) {
+            System.err.println("La ruta no es un directorio");
+            return;
+        }
+        File nuevoDir = new File(dir, nombreDirectorio);
+        if (nuevoDir.mkdir()) {
+            System.out.println("Directorio creado: " + nuevoDir.getAbsolutePath());
+        } else {
+            System.err.println("No se pudo crear el directorio o ya existe");
+        }
+        File f1 = new File(dir, nombreArchivo);
+        try {
+            if (f1.createNewFile()) {
+                System.out.println("Fichero creado: " + f1.getAbsolutePath());
+            } else {
+                System.err.println("El fichero ya existe");
+            }
+        } catch (IOException e) {
+            System.err.println("Error al crear el fichero: " + e.getMessage());
+        }
     }
 
     public static void leerCaracteres(String rutaFichero) {
