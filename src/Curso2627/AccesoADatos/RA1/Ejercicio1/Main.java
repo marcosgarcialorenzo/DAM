@@ -18,13 +18,19 @@ public class Main {
             System.out.println("6. Escribir fichero completo");
             System.out.println("7. Escribir líneas impares");
             System.out.println("8. Copiar fichero y añadir mensaje final");
-            System.out.println("9. Separar pares e impares");
+            System.out.println("9. Copiar fichero en uno de pares y otro de impares");
             System.out.println("10. Buscar línea en fichero");
             System.out.println("11. Copiar líneas mayores a 10 caracteres");
-            System.out.println("12. Copiar fichero completo");
-            System.out.println("13. Salir");
+            System.out.println("12. Copiar fichero completo sin argumentos por teclado");
+            System.out.println("13. Copiar fichero completo mediante argumentos");
+            System.out.println("14. Salir");
             System.out.print("Seleccione una opción: ");
 
+            if (!sc.hasNextInt()) {
+                System.err.println("La opción debe ser un número entero.");
+                sc.nextLine();
+                continue;
+            }
             opcion = sc.nextInt();
             sc.nextLine();
 
@@ -112,10 +118,20 @@ public class Main {
                     OPERACIONESTEXTOS.copiarFicheros(rutaOrigen12, rutaDestino12);
                     break;
                 case 13:
+                    if (args.length != 2) {
+                        System.out.println("Error hay que pasar  2 argumentos: ");
+                    } else {
+                        String rutaOrigen13 = args[0];
+                        String rutaDestino13 = args[1];
+                        OPERACIONESTEXTOS.copiarFicheros(rutaOrigen13, rutaDestino13);
+                        System.out.println("Copia realizada usando argumentos de línea de comandos.");
+                    }
+                    break;
+                case 14:
                     System.out.println("FIN DEL PROGRAMA.");
                     break;
                 default:
-                    System.out.println("OPCION ERRONEA. VUELVE A INTENTARLO.");
+                    System.err.println("OPCION ERRONEA. VUELVE A INTENTARLO.");
             }
         }
         sc.close();
