@@ -1,6 +1,6 @@
 # DAM
 
-Repositorio personal de ejercicios, practicas, examenes y material de estudio del ciclo formativo de **Desarrollo de Aplicaciones Multiplataforma (DAM)**.
+Repositorio personal de ejercicios, practicas, examenes y material de estudio relativo a las asignaturas de Programacion, Bases de Datos y Acceso a Datos, del ciclo formativo de **Desarrollo de Aplicaciones Multiplataforma (DAM)**.
 
 El repositorio esta organizado principalmente por curso y asignatura. La mayoria de los ejercicios son independientes y conservan su estructura original para poder abrirlos y ejecutarlos desde IntelliJ IDEA.
 
