@@ -23,9 +23,18 @@ public class OperacionesEjemplo {
     }
 
 
-    public void ejemploEmpleados(String rutaFichero) throws IOException {
-        Empleado E1 = new Empleado(0, null, 0, null);
-        E1.leerEmpleado(new DataInputStream(new FileInputStream(rutaFichero)));
-        E1.mostrarEmpleado();
+    public void ejemploEmpleados(String rutaFichero) {
+        try (DataInputStream dis = new DataInputStream(new FileInputStream(rutaFichero))) {
+            while (true) { // Bucle infinito hasta llegar al final del fichero
+                Empleado E1 = new Empleado();
+                E1.leerEmpleado(dis);
+                E1.mostrarEmpleado();
+            }
+        } catch (EOFException e) {
+            // Se alcanza esta excepción de manera normal al llegar al final del archivo
+            System.out.println("Fin de la lectura del fichero.");
+        } catch (IOException e) {
+            System.out.println("Error de E/S: " + e.getMessage());
+        }
     }
 }
