@@ -23,7 +23,9 @@ public class OperacionesEjemplo {
     }
 
 
-    public void ejemploEmpleados(String rutaFichero) {
-
+    public void ejemploEmpleados(String rutaFichero) throws IOException {
+        Empleado E1 = new Empleado(0, null, 0, null);
+        E1.leerEmpleado(new DataInputStream(new FileInputStream(rutaFichero)));
+        E1.mostrarEmpleado();
     }
 }
