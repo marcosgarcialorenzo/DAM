@@ -5,9 +5,10 @@ import lombok.Data;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.Serializable;
 
 @Data
-public class Empleado {
+public class Empleado implements Serializable {
 
     private long codigo;
     private String nombre;
